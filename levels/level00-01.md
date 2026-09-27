@@ -1,6 +1,7 @@
 # Level 0 -> 1
 
-# Aim: log in as Bandit0 and find a password for the next level
+# Aim: 
+- log in as Bandit0 and find a password for the next level
 
 ## My approach: 
 - logging in by credentials provided in the previous level.
