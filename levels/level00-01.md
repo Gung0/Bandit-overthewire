@@ -9,10 +9,11 @@
 - ending up with accessing the readme file and password
 
 ## Solution
+```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ls 
 cat readme 
-
+```
 ## Learning points: 
 - ssh logging with a specified port (-p flag) 
 - ls command lists files 
