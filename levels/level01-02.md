@@ -20,3 +20,7 @@ cat ./-
 ## Learning points: 
 - prefixing cat command with ./ forces shell to treat it as a path, bypassing the special interpretation
 
+## Logs
+
+<img width="1024" height="784" alt="image" src="https://github.com/user-attachments/assets/07954fb5-8eff-48fb-8e16-31d8bf6f5f12" />
+
