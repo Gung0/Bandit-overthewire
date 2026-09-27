@@ -14,8 +14,9 @@ to find a password located in a file called - located in the home directory
  - accessing the password for level2 
 
 ## Solution: 
+```bash
 cat ./- 
-
+```
 ## Learning points: 
 - prefixing cat command with ./ forces shell to treat it as a path, bypassing the special interpretation
 
