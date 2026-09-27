@@ -17,5 +17,5 @@ to find a password located in a file called - located in the home directory
 cat ./- 
 
 ## Learning points: 
-- prefixing cat commdn with ./ forces shell to treat it as a path, bypassing the special interpretation
+- prefixing cat command with ./ forces shell to treat it as a path, bypassing the special interpretation
 
