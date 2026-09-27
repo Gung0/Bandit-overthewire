@@ -9,7 +9,7 @@ to find a password located in a file called - located in the home directory
  - trying cat command, doesn't work, "-" is interpreted as command prompt and is waiting for the input
  - checking manpage for cat command
  - trying several variations with cat containing "\-" \-\ 
- - trying to rename file with normal characters 
+ - trying to rename file with normal characters - no permission to do so
  - finding a way to access the file by the cat ./ variation
  - accessing the password for level2 
 
