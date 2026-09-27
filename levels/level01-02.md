@@ -6,7 +6,7 @@ to find a password located in a file called - located in the home directory
 ##  My approach: 
  - checking files located in the home directory
  - checking files located in home directory 
- - trying cat command, doesn't work, "-" is interpreted as command prompt and is waiting for the input
+ - trying cat command, doesn't work, "-" is interpreted as a flag, and is waiting for the input
  - checking manpage for cat command
  - trying several variations with cat containing "\-" \-\ 
  - trying to rename file with normal characters - no permission to do so
