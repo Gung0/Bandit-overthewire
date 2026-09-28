@@ -1,21 +1,20 @@
-# Level 1 -> 2
+# Level 3 -> 4
 
 ## Aim: 
-to find a password located in a file called - located in the home directory
+to find a password stored in a hidden file in the inhere directory
 
 ##  My approach: 
- - checking files located in the home directory
- - checking files located in home directory 
- - trying cat command, doesn't work, "-" is interpreted as a flag, and is waiting for the input
- - checking manpage for cat command
- - trying several variations with cat containing "\-" \-\ 
- - trying to rename file with normal characters - no permission to do so
- - finding a way to access the file by the cat ./ variation
- - accessing the password for level2 
+ - accessing 'inhere' directory and listing files using ls -> no files visible 
+ - researching on how to list hidden files, another try with ```ls -la ``` command -> 3 files shown up: . .. and ...Hiding-From-You
+ - ```ls -la ``` shows the filetype of files -> first two are directories (d letter), only the third is a file (-)
+ - accessing the third file by cat 
 
 ## Solution: 
 ```bash
-cat ./- 
+cd inhere
+ls -la
+cat ...Hiding-From-You
 ```
+
 ## Learning points: 
-- prefixing cat command with ./ forces shell to treat it as a path, bypassing the special interpretation
+-  ```ls -la ``` command displays all hidden files as well as their filetypes, links, owner, group, size, time, and name
