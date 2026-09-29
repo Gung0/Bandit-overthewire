@@ -23,7 +23,7 @@ cat inhere/maybehere07/.file2
 ```
 
 ## Learning points: 
-- `du` by default shows how much disk space a file actually takes up, not how many bytes its content has.
+- `du` by default shows how much disk space a file actually takes up, not how many bytes its content has. File systems allocate space in fixed-size blocks (often 4096 bytes).
 - Although a command `du -b --apparent-size inhere/*/*` could have been used, `find` is still a better tool to look for a file of exact size because it filters the results right away
 - `find` has an innate recurrence meaning there's no need to specify wildcards because it always goes down the catalogue tree
 - when it comes to other commands, such as `ls`, `du`, `file`, `cat`, a recursive glob `**/*` needs to be used to ensure all files at any  depth will be matched
