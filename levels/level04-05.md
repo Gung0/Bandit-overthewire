@@ -8,7 +8,7 @@ not executable
 
 ##  My approach: 
  - using `ls -la` to look around /inhere directory -> 20 directories inside
- - using `ls *` from the previous level to see all the files -> 6 files in each directory, 120 files in total
+ - using `ls *` from the previous level to see all the files -> around ~120 files in total
  - checking types of files to determine first property by using `file inhere/*/*`, most of the files are ASCII text, meaning they're human-readable
  - trying `du inhere/*/*` command to determine second property - 1033 bytes in size -> no able to interprete results, trying `du -h inhere/*/*` -> displays files and directories' disk usage in human readable format (K in this case)  
  - can't find a way to specify exact number of bytes into the `du` command, changing approach to `find` command
