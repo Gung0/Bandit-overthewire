@@ -22,6 +22,7 @@ not executable
 ```bash
 find inhere/ ! -executable -size 1033c
 file inhere/maybehere07/.file2
+cat inhere/maybehere07/.file2
 ```
 
 ## Learning points: 
