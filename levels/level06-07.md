@@ -7,26 +7,17 @@ owned by group bandit6 <br>
 33 bytes in size <br>
 
 ##  My approach: 
- - using `ls -la` to look around /inhere directory -> 20 directories inside
- - using `ls *` from the previous level to see all the files -> around ~120 files in total
- - checking types of files to determine first property by using `file inhere/*/*`, most of the files are ASCII text, meaning they're human-readable
- - trying `du inhere/*/*` command to determine second property - 1033 bytes in size -> unable to interpret results, trying `du -h inhere/*/*` -> displays files and directories' disk usage in human readable format (K in this case)  
- - can't find a way to specify exact number of bytes into the `du` command, changing approach to `find` command
- - find manpage shows c flag to determine the exact size of a file -> `find inhere/ -size 1033c` shows only one file, catting it looks like a password but needs further confirmation of 2 other properties
- - `file` shows its type of ASCII text -> first property checked
- - now researching on how to check if a file is not executable, checking manpage -> finding `-executable` flag, and that `!` is used to negate 
- -  combining flags into one file  `find inhere/ ! -executable -size 1033c` -> displaying one file (the same as earlier)
- -  catting the file and accessing password
+ - looking around by `ls -la *` in the whole system -> crazy amount of files (no wonder) 
+ - looking up find manpage and trying to locate flag for owner and group (size command already known) -> finding `-user name` and `-group name` flags
+ - putting the flags altogether `find / -user bandit7 -group bandit6 -size 33c` -> displaying many system/permission errors but resulting in the file `./var/lib/dpkg/info/bandit7.password`
+ - catting the file gives the password
+
 
 ## Solution: 
 ```bash
-find inhere/ ! -executable -size 1033c
-file inhere/maybehere07/.file2
-cat inhere/maybehere07/.file2
+find / -user bandit7 -group bandit6 -size 33c
+cat ./var/lib/dpkg/info/bandit7.password
 ```
 
 ## Learning points: 
-- `du` by default shows how much disk space a file actually takes up, not how many bytes its content has. File systems allocate space in fixed-size blocks (often 4096 bytes).
-- Although a command `du -b --apparent-size inhere/*/*` could have been used, `find` is still a better tool to look for a file of exact size because it filters the results right away
-- `find` has an innate recurrence meaning there's no need to specify wildcards because it always goes down the catalogue tree
-- when it comes to other commands, such as `ls`, `du`, `file`, `cat`, a recursive glob `**/*` needs to be used to ensure all files at any  depth will be matched
+- `find` takes a starting path as its first argument, using `/` searches the entire filesystem from the root down
