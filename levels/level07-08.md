@@ -1,23 +1,20 @@
-# Level 6 -> 7
+# Level 7 -> 8
 
 ## Aim: 
-to find a password stored somewhere on the server and has all of the following properties: <br>
-owned by user bandit7 <br>
-owned by group bandit6 <br>
-33 bytes in size <br>
+to find a password stored in the file data.txt next to the word millionth
 
 ##  My approach: 
- - looking around by `ls -la *` in the whole system -> crazy amount of files (no wonder) 
- - looking up find manpage and trying to locate flag for owner and group (size command already known) -> finding `-user name` and `-group name` flags
- - putting the flags altogether `find / -user bandit7 -group bandit6 -size 33c` -> displaying many system/permission errors but resulting in the file `./var/lib/dpkg/info/bandit7.password`
- - catting the file gives the password
+ - looking around by `ls -la` -> the result shows data.txt file
+ - catting the file gives a tremendous amount of lines, trying the suggested commands on the webpage
+ - researching the `grep` flag in its manpage -> getting the synopsis to use `grep PATTERN [FILE]`
+ - using the command `grep millionth data.txt` -> the results displays the password next to the found word 'millionth'
 
 
 ## Solution: 
 ```bash
-find / -user bandit7 -group bandit6 -size 33c
-cat ./var/lib/dpkg/info/bandit7.password
+grep millionth data.txt
 ```
 
 ## Learning points: 
-- `find` takes a starting path as its first argument, using `/` searches the entire filesystem from the root down
+- `grep` searches for patterns in the file, which proves to be useful when a file has too many 
+  lines to look through manually (`cat` alone wasn't practical here)
