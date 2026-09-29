@@ -1,10 +1,7 @@
 # Level 5 -> 6
 
 ## Aim: 
-to find a password stored in a file somewhere under the inhere directory, which has all of the following properties:
-human-readable
-1033 bytes in size
-not executable
+to find a password stored in a file somewhere under the inhere directory, which has all of the following properties: human-readable, 1033 bytes in size, not executable
 
 ##  My approach: 
  - using `ls -la` to look around /inhere directory -> 20 directories inside
