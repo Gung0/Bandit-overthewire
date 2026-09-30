@@ -1,15 +1,11 @@
-# Level 8 -> 9
+# Level 9 -> 10
 
 ## Aim: 
-to find a password stored in the file data.txt that is the only line of text that occurs only once
+to find a password stored in the file data.txt in one of the few human-readable strings, and preceded by several ‘=’ characters
 
 ##  My approach: 
- - locating `data.txt` file, trying to cat it -> great number of lines
- - manpaging suggested commands `uniq` and `sort` -> trying to implement them
- - `uniq data.txt` prints the same amount of lines, `uniq -u` doesn't work
- - hint at the end of the mapnage says that 'uniq' does not detect repeated lines unless they are adjacent. Makes sense since right not the lines are scattered. Sorting should come first
- -  as manpage says, `sort` writes sorted concatenation of all FILE(s) to standard output -> `sort -u` prints only unique lines, limited but still too many to be useful 
- -  two commands needs to be combined now, looking for another hint at the level webpage. Finding info about piping and redirection by using `|` -> combining the commands into `sort data.txt | uniq -u` -> one line is given that is the searched password  
+ - locating `data.txt` file, trying to cat it -> most of it is garbage
+ - trying to find an easier way to scroll through a file without flooding the whole terminal window with garbage -> `less` 
 
 
 ## Solution: 
