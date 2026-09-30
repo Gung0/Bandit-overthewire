@@ -18,4 +18,11 @@ sort data.txt | uniq -u
 ```
 
 ## Learning points: 
-- for `uniq` to work, a file must be first sorted.   
+- `uniq` only compares adjacent lines, so a file needs to be sorted first for 
+  it to correctly detect all duplicates
+- uniq removes duplicate lines (and keeps each line of unique text)
+- uniq -u shows only the lines that appeared exactly once (no duplicates)
+- pipeline | forwards the output of a command to another command
+- `sort -u` and `uniq -u` are not the same. `sort -u` removes duplicates and 
+  keeps one copy of every value (even ones that repeated many times), while 
+  `uniq -u` keeps only values that had zero duplicates to begin with
