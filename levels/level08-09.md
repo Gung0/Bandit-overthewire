@@ -25,4 +25,4 @@ sort data.txt | uniq -u
 - pipeline | forwards the output of a command to another command
 - `sort -u` and `uniq -u` are not the same. `sort -u` removes duplicates and 
   keeps one copy of every value (even ones that repeated many times), while 
-  `uniq -u` keeps only values that had zero duplicates to begin with
+  `uniq -u` keeps only values that had no duplicates
