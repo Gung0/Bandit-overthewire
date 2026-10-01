@@ -1,19 +1,24 @@
-# Level 10 -> 11
+# Level 11 -> 12
 
 ## Aim: 
-to find a password stored in the file data.txt, which contains base64 encoded data
+to find a password stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
 
 ##  My approach: 
- - locating `data.txt` file, prints ASCII text but the format is not understandable -> reading about base64 encoding
- - manpaging `base64` command -> finding `-d` flag used to decode
- - using `base64 -d data.txt` to get the password
+ - locating `data.txt` file, prints ASCII text but can't make sense of it
+ - reading about ROT13 cipher, finding its Unix implementation algorithm on Wikipedia
+ - ``` bash
+   $ # Map upper case A-Z to N-ZA-M and lower case a-z to n-za-m
+   $ tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< "Pack My Box With Five Dozen Liquor Jugs"
+   Cnpx Zl Obk Jvgu Svir Qbmra Yvdhbe Whtf
+   ```
+- adjusting the command to the current environment by `tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt` and getting the password
 
 ## Solution: 
 ```bash
-base64 -d data.txt
+tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
+# or
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
 ## Learning points: 
-- base64 is a binary-to-text encoding that uses 64 printable characters to represent each 6-bit segment of a sequence of byte values. It was created to send raw binary data without losses or misinterpretations, which is crucial for older protocols and formats (e.g. email, XML, JSON, URL) 
-- characteristic mark of base64 encoding is '=' or '==' at the end of line. It shows up when the input length isn't evenly divisible by 3 bytes (one leftover byte adds '==', two -> '=')
-- `base64` command is used to encode a text into base64, while `base64 -d` decodes it back into its original form
+- 
