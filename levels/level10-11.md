@@ -1,20 +1,18 @@
-# Level 9 -> 10
+# Level 10 -> 11
 
 ## Aim: 
-to find a password stored in the file data.txt in one of the few human-readable strings, and preceded by several ‘=’ characters
+to find a password stored in the file data.txt, which contains base64 encoded data
 
 ##  My approach: 
- - locating `data.txt` file, trying to cat it -> most of it is garbage
- - trying to find an easier way to scroll through a file without flooding the whole terminal window with garbage -> `less` does the job
- - manpaging the suggested command `strings` -> it prints the sequence of printable characters in files
- - using `strings data.txt` -> displays ASCII text chunks, but still many lines to go through. Using a hint from the level description about '=' characters 
- - combining `strings` and `grep` commands with a pipeline `|` learnt in the previous level -> `strings data.txt | grep "=="` -> password is displayed          
+ - locating `data.txt` file, prints ASCII text but the format is not understandable -> reading about base64 encoding
+ - base64 is a binary-to-text encoding that uses 64 printable characters to represent each 6-bit segment of a sequence of byte values
+ - manpaging `base64` command -> finding `-u` flag used to decode
+ - using `base64 -d data.txt` to get the password
 
 ## Solution: 
 ```bash
-strings data.txt | grep "=="
+base64 -d data.txt
 ```
 
 ## Learning points: 
-- `less` can be used instead of `cat` to scroll through the whole file instead of printing the whole output to the terminal window
-- `strings` extracts only printable characters in files which is useful to filter out non-printable binary data displayed by `cat` as garbage 
+-  
