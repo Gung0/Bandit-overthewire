@@ -16,5 +16,5 @@ strings data.txt | grep "=="
 ```
 
 ## Learning points: 
-- `less` can be used instaed of `cat` to scroll through the whole file instead of printing the whole output to the terminal window
-- `strings` looks for printable characters in files and therefore is useful to sort out garbage (meaning machine language unreadable for humans) 
+- `less` can be used instead of `cat` to scroll through the whole file instead of printing the whole output to the terminal window
+- `strings` exatracts only printable characters in files which is useful to filter out non-printable binary data displayed by `cat` as garbage 
