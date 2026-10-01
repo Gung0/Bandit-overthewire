@@ -5,20 +5,16 @@ to find a password stored in the file data.txt in one of the few human-readable 
 
 ##  My approach: 
  - locating `data.txt` file, trying to cat it -> most of it is garbage
- - trying to find an easier way to scroll through a file without flooding the whole terminal window with garbage -> `less` 
-
+ - trying to find an easier way to scroll through a file without flooding the whole terminal window with garbage -> `less` does the job
+ - manpaging the suggested command `strings` -> it prints the sequence of printable characters in files
+ - using `strings data.txt` -> displays ASCII text chunks, but still many lines to go through. Using a hint from the level description about '=' characters 
+ - combining `strings` and `grep` commands with a pipeline `|` learnt in the previous level -> `strings data.txt | grep "=="` -> password is displayed          
 
 ## Solution: 
 ```bash
-sort data.txt | uniq -u
+strings data.txt | grep "=="
 ```
 
 ## Learning points: 
-- `uniq` only compares adjacent lines, so a file needs to be sorted first for 
-  it to correctly detect all duplicates
-- `uniq` removes duplicate lines (and keeps each line of unique text)
-- `uniq -u` shows only the lines that appeared exactly once (no duplicates)
-- pipeline | forwards the output of a command to another command
-- `sort -u` and `uniq -u` are not the same. `sort -u` removes duplicates and 
-  keeps one copy of every value (even ones that repeated many times), while 
-  `uniq -u` keeps only values that had no duplicates
+- `less` can be used instaed of `cat` to scroll through the whole file instead of printing the whole output to the terminal window
+- `strings` looks for printable characters in files and therefore is useful to sort out garbage (meaning machine language unreadable for humans) 
