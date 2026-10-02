@@ -23,5 +23,5 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ## Learning points: 
 -  ROT13 replaces a letter with the 13th letter after it in the Latin alphabet (A becomes N, B - O, etc.), e.g. HELLO -> URYYB
 -  In Linux it is represented by `'A-Za-z' 'N-ZA-Mn-za-m'` meaning "take any character in the range `[A-Za-z]` and replace it with the corresponding character `N-ZA-Mn-za-m` at the same position    
-- `tr` translates, squeezes, and/or deletes characters from standard input, writing to standard output
+- `tr` translates, squeezes, and/or deletes characters from standard input, writing to standard output -> it always reads from stdin and writes to stdout hence the need for operators or pipelines
 -  `<` operator redirects the content of the file into standard input so `tr` reads from the file instead of waiting for keyboard input
