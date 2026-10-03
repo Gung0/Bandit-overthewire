@@ -1,7 +1,7 @@
-# Level 11 -> 12
+# Level 12 -> 13
 
 ## Aim: 
-to find a password stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+to find a password stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed
 
 ##  My approach: 
  - `ls` shows `data.txt`, `less data.txt` -> it is a hexdump (hex numbers written as text)
