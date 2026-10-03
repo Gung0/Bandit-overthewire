@@ -11,7 +11,7 @@ to find a password stored in the file data.txt, which is a hexdump of a file tha
  - trying `gzip` and `tar -x` on the copied file -> it is still a hexdump, so reversing it has to come first
  - `xxd -r data2 > data3` redirecting to a file keeps the garbage off the screen -> `file data3` says gzip compressed data
  - `gzip -d` refuses files without the `.gz` extension -> adding it by `mv`, then `gzip -d` 
- - from here the same loop repeated 8 more times: `file` to check the type -> `mv` to add the matching extension -> unpack with the matching tool (gzip, bzip2, tar)
+ - from here the same loop repeated several times: `file` to check the type -> `mv` to add the matching extension -> unpack with the matching tool (gzip, bzip2, tar)
  - `tar -x data3.tar` fails with "Refusing to read archive contents from terminal" -> `-f` is needed to pass the archive name, `tar -xf data3.tar` works
  - the last `file` says ASCII text -> `cat` shows the password
 
@@ -50,6 +50,8 @@ cat data8
 
 ## Learning points: 
 -  `file` checks the actual bytes of a file. A hexdump is plain text (hex digits written as ASCII characters), that's why it displays "ASCII text"
--  `gzip` and `bzip2` commands operate only on files with the corresponding extensions, e.g. `.gz`,`.bz2`
--  for `tar` to work on the given file, the `-f` flag must be given. Otherwise is reads from the input. `tar` also doesn't require a specific extension to be run
--  
+-  `gzip` and `bzip2` choose the output name from the extension, so the file has to be renamed to `.gz` or `.bz2` first
+- `tar -x` extract files from an archive and it doesn't require a specific extension to be run
+-  for `tar` to work on the given file, the `-f` flag must be given. Otherwise it reads from standard input. 
+-  `xxd -r` alone floods the terminal with binary data, that's why an operator `>` is needed to redirect the output to a file
+-  `mktemp -d` creates a temporary directory under `/tmp` 
