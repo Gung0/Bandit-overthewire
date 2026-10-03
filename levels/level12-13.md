@@ -50,3 +50,6 @@ cat data8
 
 ## Learning points: 
 -  `file` checks the actual bytes of a file. A hexdump is plain text (hex digits written as ASCII characters), that's why it displays "ASCII text"
+-  `gzip` and `bzip2` commands operate only on files with the corresponding extensions, e.g. `.gz`,`.bz2`
+-  for `tar` to work on the given file, the `-f` flag must be given. Otherwise is reads from the input. `tar` also doesn't require a specific extension to be run
+-  
