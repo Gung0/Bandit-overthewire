@@ -51,7 +51,6 @@ cat data8
 ## Learning points: 
 -  `file` checks the actual bytes of a file. A hexdump is plain text (hex digits written as ASCII characters), that's why it displays "ASCII text"
 -  `gzip` and `bzip2` choose the output name from the extension, so the file has to be renamed to `.gz` or `.bz2` first
-- `tar -x` extract files from an archive and it doesn't require a specific extension to be run
--  for `tar` to work on the given file, the `-f` flag must be given. Otherwise it reads from standard input. 
+- `tar -x` extracts files from an archive and it doesn't require a specific extension to be run. Ror `tar` to work on the given file, the `-f` flag must be given. Otherwise it reads from standard input. 
 -  `xxd -r` alone floods the terminal with binary data, that's why an operator `>` is needed to redirect the output to a file
 -  `mktemp -d` creates a temporary directory under `/tmp` 
