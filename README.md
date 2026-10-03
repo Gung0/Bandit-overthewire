@@ -1,6 +1,13 @@
-# Bandit-overthewire
-Write-ups from the Bandit challenge, aiming for a better understanding of linux basics. 
+# Bandit OverTheWire write-ups
 
-The write-ups follow my approach to the given Bandit challenge, commands as a solution, and learning points summarising the obtained knowledge
+My write-ups from the [Bandit challenge](https://overthewire.org/wargames/bandit/), written while learning Linux basics. 
 
-Reference: https://overthewire.org/wargames/bandit/
+Each write-up in `levels/` contains: 
+- the aim of the level
+- my appraoch, including typed commands and dead ends
+- the solution commands
+- learning points summarising what I learned
+
+Useful commands and shell notes are collected in [cheatsheet.md](cheatsheet.md). My own helper scripts are in `scripts/`.
+
+Passwords are not included in this repository. 
