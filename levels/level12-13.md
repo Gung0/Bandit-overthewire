@@ -4,10 +4,10 @@
 to find a password stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed
 
 ##  My approach: 
- - `ls` shows `data.txt`, `less data.txt` -> it is a hexdump (hex numbers written as text)
+ - `ls` shows `data.txt`, scrolling through it by `less` command -> unrecognisable format, researching it is a hexdump (hex numbers written as text)
  - reading the level hints and manpages (`man xxd`, `man tar`, `man gzip`, `man bzip2`) -> `xxd -r` reverses a hexdump back to binary
- - running `xxd -r data.txt` straight away -> binary garbage floods the terminal
- - the hint suggests working in a temporary directory -> `mktemp -d`, then `cp` inside it
+ - running `xxd -r data.txt` -> binary garbage floods the terminal
+ - the hint suggests working in a temporary directory -> `mktemp -d`, then `cp` to copy the file into it
  - trying `gzip` and `tar -x` on the copied file -> it is still a hexdump, so reversing it has to come first
  - `xxd -r data2 > data3` redirecting to a file keeps the garbage off the screen -> `file data3` says gzip compressed data
  - `gzip -d` refuses files without the `.gz` extension -> adding it by `mv`, then `gzip -d` 
