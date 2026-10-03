@@ -4,7 +4,7 @@ My write-ups from the [Bandit challenge](https://overthewire.org/wargames/bandit
 
 Each write-up in `levels/` contains: 
 - the aim of the level
-- my appraoch, including typed commands and dead ends
+- my approach, including typed commands and dead ends (with comments)
 - the solution commands
 - learning points summarising what I learned
 
