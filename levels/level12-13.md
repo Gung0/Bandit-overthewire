@@ -4,24 +4,21 @@
 to find a password stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
 
 ##  My approach: 
- - locating `data.txt` file, prints ASCII text but can't make sense of it
- - reading about ROT13 cipher, finding its Unix implementation algorithm on Wikipedia
- - ``` bash
-   $ # Map upper case A-Z to N-ZA-M and lower case a-z to n-za-m
-   $ tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< "Pack My Box With Five Dozen Liquor Jugs"
-   Cnpx Zl Obk Jvgu Svir Qbmra Yvdhbe Whtf
-   ```
-- adjusting the command to the current environment by `tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt` and getting the password
+ - `ls` shows `data.txt`, `less data.txt` -> it is a hexdump (hex numbers written as text)
+ - reading the level hints and manpages (`man xxd`, `man tar`, `man gzip`, `man bzip2`) -> `xxd -r` reverses a hexdump back to binary
+ - running `xxd -r data.txt` straight away -> binary garbage floods the terminal
+ - the hint suggests working in a temporary directory -> `mktemp -d`, then `cp` inside it
+ - trying `gzip` and `tar -x` on the copied file -> it is still a hexdump, so reversing it has to come first
+ - `xxd -r data2 > data3` redirecting to a file keeps the garbage off the screen -> `file data3` says gzip compressed data
+ - `gzip -d` refuses files without the `.gz` extension -> adding it by `mv`, then `gzip -d` 
+ - from here the same loop repeated 8 more times: `file` to check the type -> `mv` to add the matching extension -> unpack with the matching tool (gzip, bzip2, tar)
+ - `tar -x data3.tar` fails with "Refusing to read archive contents from terminal" -> `-f` is needed to pass the archive name, `tar -xf data3.tar` works
+ - the last `file` says ASCII text -> `cat` shows the password
 
 ## Solution: 
 ```bash
-tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
-# or
-cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
 ```
 
 ## Learning points: 
--  ROT13 replaces a letter with the 13th letter after it in the Latin alphabet (A becomes N, B - O, etc.), e.g. HELLO -> URYYB
--  In Linux it is represented by `'A-Za-z' 'N-ZA-Mn-za-m'` meaning "take any character in the range `[A-Za-z]` and replace it with the corresponding character `N-ZA-Mn-za-m` at the same position    
-- `tr` translates, squeezes, and/or deletes characters from standard input, writing to standard output -> it always reads from stdin and writes to stdout hence the need for operators or pipelines
--  `<` operator redirects the content of the file into standard input so `tr` reads from the file instead of waiting for keyboard input
+-  
