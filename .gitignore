@@ -1,0 +1,3 @@
+# session logs contain passwords
+session_logs/
+*.log
