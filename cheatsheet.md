@@ -10,16 +10,15 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220   # -p indicates a port
 ## Reconnaisance 
 ``` bash
 ls -la               # long listing, including hidden files
-file ./*             # detect the type of every file from its content
-less file            # scroll through a long file (q to quit)
+file ./*             # detects the type of every file from its content, ./ keeps names that start with a dash from being read as options
+less file            # scrolls through a long file (q to quit)
 cat file             # reads a file
 ```
 
 ## Special filenames
 ``` bash
-cat ./-                                      # name is a dash, ./ turns it (and any other special character) into a path
+cat ./-                                      # name is a dash, ./ turns it into a path
 cat ./"--spaces in this name--"              # spaces need quotes 
- 
 ```
 
 ## Searching
@@ -47,7 +46,6 @@ command > file                                # writes output of a command to a 
 command >> file                               # appends to a file (instead of overwriting)
 command < file                                # reads input from a file
 command1 | command2                           # sends the output of one command into another
- 
 ```
 
 
@@ -59,7 +57,8 @@ xxd -r hexdump                                    # reverses a hexdump into bina
 
 ## Globbing
 ```bash
-
+- `*` is expanded by the shell before the command runs. It matches one directory level and skips hidden files.
+- `echo inhere/*` shows what a pattern expands to.
 ```
 
 
