@@ -24,12 +24,42 @@ cat ./"--spaces in this name--"              # spaces need quotes
 
 ## Searching
 ``` bash
+find file                                     # searches for a file in a directory hierarchy
+find / file                                   # searches for a file in the whole system (starting from root) 
 find -size 1033c                              # exact size in bytes (c = bytes)
 find -user bandit7 -group bandit6             # by owner and group
 find ! -executable                            # files that are NOT executable (! is negation)
 grep pattern file                             # prints lines containing a pattern
 grep -F '[pwn]' file                          # fixed string, brackets are literal 
+```
+
+## Text processing
+```bash
+sort data.txt | uniq -u                       # prints lines that occur exactly one (for uniq to work, the file must be sorted first)
+sort data.txt | uniq -c                       # counts occurrences of each line
+strings data.txt | grep "=="                  # shows printable text from a binary file, then filters
+tr 'A-Za-z' 'N-ZA-Mn-za-m'                    # applies ROT13 cipher (translates characters), both encodes and decodes 
+```
+
+## Redirection and pipes
+```bash
+command > file                                # writes output of a command to a file (overwrites)
+command >> file                               # appends to a file (instead of overwriting)
+command < file                                # reads input from a file
+command1 | command2                           # sends the output of one command into another
  
+```
+
+
+## Encoding and compression
+```bash
+base64 -d data.txt                                # decode base64 (without -d it encodes)
+xxd -r hexdump                                    # reverses a hexdump into binary 
+```
+
+## Globbing
+```bash
+
 ```
 
 
