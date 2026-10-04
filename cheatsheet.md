@@ -7,7 +7,7 @@ Commands collected while solving Bandit levels, grouped by topic.
 ssh bandit0@bandit.labs.overthewire.org -p 2220   # -p indicates a port 
 ```
 
-## Reconnaisance 
+## Reconnaissance 
 ``` bash
 ls -la               # long listing, including hidden files
 file ./*             # detects the type of every file from its content, ./ keeps names that start with a dash from being read as options
@@ -35,7 +35,7 @@ grep -F '[pwn]' file                          # fixed string, brackets are liter
 
 ## Text processing
 ```bash
-sort data.txt | uniq -u                       # prints lines that occur exactly one (for uniq to work, the file must be sorted first)
+sort data.txt | uniq -u                       # prints lines that occur exactly once (for uniq to work, the file must be sorted first)
 sort data.txt | uniq -c                       # counts occurrences of each line
 strings data.txt | grep "=="                  # shows printable text from a binary file, then filters
 tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt         # applies ROT13 (translates characters), used to encode and decode
@@ -53,14 +53,17 @@ command1 | command2                           # sends the output of one command 
 ## Encoding and compression
 ```bash
 base64 -d data.txt                                # decode base64 (without -d it encodes)
-xxd -r hexdump                                    # reverses a hexdump into binary 
+xxd -r hexdump > data.txt                         # reverses a hexdump into binary, then redirects the output into a file
+mktemp -d                                         # creates a temporary directory under /tmp
+mv data data.gz && gzip -d data.gz                # gzip needs the .gz extension
+mv data data.bz2 && bzip2 -d data.bz2             # bzip2 needs the .bz2 extension
+tar -xf archive.tar                               # extracts an archive (-f gives the file name), without -x it makes a file into an archive
 ```
 
 ## Globbing
-```bash
 - `*` is expanded by the shell before the command runs. It matches one directory level and skips hidden files, e.g.:
 - `echo inhere/*` shows what a pattern expands to
-```
+
 
 
 ## Shell notes
