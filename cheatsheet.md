@@ -22,7 +22,7 @@ cat ./"--spaces in this name--"              # spaces need quotes
 ``` bash
 find                                          # searches for files in a directory hierarchy
 find -name file                               # searches for a file of the given name
-find / file                                   # searches for files in the whole system (starting from root) 
+find /                                        # searches for files in the whole system (starting from root) 
 find -size 1033c                              # exact size in bytes (c = bytes)
 find -user bandit7 -group bandit6             # by owner and group
 find ! -executable                            # files that are NOT executable (! is negation)
@@ -58,14 +58,14 @@ command1 | command2                           # sends the output of one command 
 ## Encoding and compression
 ```bash
 base64 -d data.txt                                # decode base64 (without -d it encodes)
-xxd -r hexdump > data.txt                         # reverses a hexdump into binary, then redirects the output into a file
+xxd -r hexdump > output                           # reverses a hexdump into binary, then redirects the output into a file
 gzip -d data.gz                                   # decompresses a gzip file (needs the .gz extension), without -d it compresses
 bzip2 -d data.bz2                                 # decompresses a bzip2 file (needs the .bz2 extension), without -d it compresses
-tar -xf archive.tar                               # extracts an archive (-f gives the file name), without -x it makes a file into an archive
+tar -xf archive.tar                               # extracts an archive (-f gives the file name)
 ```
 
 ## Globbing
-- `*` is expanded by the shell before the command runs. It matches one directory level and skips hidden files, e.g.:
+- `*` is expanded by the shell before the command runs. It matches one directory level and skips hidden files
 - `echo inhere/*` shows what a pattern expands to
 
 
