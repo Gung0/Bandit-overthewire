@@ -33,8 +33,16 @@ grep pattern file                             # prints lines containing a patter
 grep -F '[pwn]' file                          # fixed string, brackets are literal 
 ```
 
+## File operations
+``` bash
+cp data.txt new_data.txt                      # copies a file
+mv old_name new_name                          # renames a file (also moves it to another directory)
+mkdir folder1                                 # creates a directory
+mktemp -d                                     # creates a temporary directory with a random name under /tmp
+```
+
 ## Text processing
-```bash
+``` bash
 sort data.txt | uniq -u                       # prints lines that occur exactly once (for uniq to work, the file must be sorted first)
 sort data.txt | uniq -c                       # counts occurrences of each line
 strings data.txt | grep "=="                  # shows printable text from a binary file, then filters
@@ -42,7 +50,7 @@ tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt         # applies ROT13 (translates charac
 ```
 
 ## Redirection and pipes
-```bash
+``` bash
 command > file                                # writes output of a command to a file (overwrites)
 command >> file                               # appends to a file (instead of overwriting)
 command < file                                # reads input from a file
@@ -54,9 +62,8 @@ command1 | command2                           # sends the output of one command 
 ```bash
 base64 -d data.txt                                # decode base64 (without -d it encodes)
 xxd -r hexdump > data.txt                         # reverses a hexdump into binary, then redirects the output into a file
-mktemp -d                                         # creates a temporary directory under /tmp
-mv data data.gz && gzip -d data.gz                # gzip needs the .gz extension
-mv data data.bz2 && bzip2 -d data.bz2             # bzip2 needs the .bz2 extension
+gzip -d data.gz                                   # decompresses a gzip file (needs the .gz extension), without -d it compresses
+bzip2 -d data.bz2                                 # decompresses a bzip2 file (needs the .bz2 extension), without -d it compresses
 tar -xf archive.tar                               # extracts an archive (-f gives the file name), without -x it makes a file into an archive
 ```
 
