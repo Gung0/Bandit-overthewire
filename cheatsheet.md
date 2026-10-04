@@ -9,14 +9,11 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220   # -p indicates a port
 
 ## Reconnaissance 
 ``` bash
-ls -la               # long listing, including hidden files
-file ./*             # detects the type of every file from its content, ./ keeps names that start with a dash from being read as options
-less file            # scrolls through a long file (q to quit)
-cat file             # reads a file
-```
-
-## Special filenames
-``` bash
+ls -la                                       # long listing, including hidden files
+file ./*                                     # detects the type of every file from its content, ./ keeps names that start with a dash from being read as options
+less file                                    # scrolls through a long file (q to quit)
+cat file                                     # reads a file
+##### SPECIAL FILENAMES #####
 cat ./-                                      # name is a dash, ./ turns it into a path
 cat ./"--spaces in this name--"              # spaces need quotes 
 ```
@@ -24,8 +21,8 @@ cat ./"--spaces in this name--"              # spaces need quotes
 ## Searching
 ``` bash
 find                                          # searches for files in a directory hierarchy
-find -name file.txt                           # searches for a file of the given name
-find / file.txt                               # searches for files in the whole system (starting from root) 
+find -name file                               # searches for a file of the given name
+find / file                                   # searches for files in the whole system (starting from root) 
 find -size 1033c                              # exact size in bytes (c = bytes)
 find -user bandit7 -group bandit6             # by owner and group
 find ! -executable                            # files that are NOT executable (! is negation)
