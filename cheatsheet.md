@@ -38,7 +38,7 @@ grep -F '[pwn]' file                          # fixed string, brackets are liter
 sort data.txt | uniq -u                       # prints lines that occur exactly one (for uniq to work, the file must be sorted first)
 sort data.txt | uniq -c                       # counts occurrences of each line
 strings data.txt | grep "=="                  # shows printable text from a binary file, then filters
-tr 'A-Za-z' 'N-ZA-Mn-za-m'                    # applies ROT13 cipher (translates characters), both encodes and decodes 
+tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt         # applies ROT13 (translates characters), used to encode and decode
 ```
 
 ## Redirection and pipes
@@ -58,8 +58,8 @@ xxd -r hexdump                                    # reverses a hexdump into bina
 
 ## Globbing
 ```bash
-- `*` is expanded by the shell before the command runs. It matches one directory level and skips hidden files.
-- `echo inhere/*` shows what a pattern expands to.
+- `*` is expanded by the shell before the command runs. It matches one directory level and skips hidden files, e.g.:
+- `echo inhere/*` shows what a pattern expands to
 ```
 
 
