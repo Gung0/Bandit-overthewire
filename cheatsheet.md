@@ -23,8 +23,9 @@ cat ./"--spaces in this name--"              # spaces need quotes
 
 ## Searching
 ``` bash
-find file.txt                                 # searches for a file in a directory hierarchy
-find / file.txt                               # searches for a file in the whole system (starting from root) 
+find                                          # searches for files in a directory hierarchy
+find -name file.txt                           # searches for a file of the given name
+find / file.txt                               # searches for files in the whole system (starting from root) 
 find -size 1033c                              # exact size in bytes (c = bytes)
 find -user bandit7 -group bandit6             # by owner and group
 find ! -executable                            # files that are NOT executable (! is negation)
