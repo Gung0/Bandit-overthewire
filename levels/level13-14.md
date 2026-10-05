@@ -19,9 +19,11 @@ to log in to a next level (as bandit14) by the provided private SSH key
 ```bash
 ls -la
 exit
+## on local machine
 scp -P 2220 bandit13@bandit.labs.overthewire.org ~/sshkey.private
 chmod 600 sshkey.private
 ssh -i sshkey.private bandiy14@bandit.labs.overthewire.org -p2220
+## on bandit14@
 cat /etc/bandit_pass/bandit14
 ```
 
