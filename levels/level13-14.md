@@ -28,4 +28,7 @@ cat /etc/bandit_pass/bandit14
 ```
 
 ## Learning points: 
--  
+- `ssh -i` takes provided ssh key (as a path) and uses it to log in
+- for SSH key to work in the `ssh -i` command, it must have restricted permissions (600 or 700)
+- `scp` is used to securely transfer files and directories between systems over a network (works with ssh meaning all transferred data is encrypted)
+- `scp -P` is used to indicate a port  
