@@ -10,6 +10,7 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220   # -p indicates a port
 ## Reconnaissance 
 ``` bash
 ls -la                                       # long listing, including hidden files
+ls -R /path                                  # -R means Recursive -> it does `ls` for every directory within the path
 file ./*                                     # detects the type of every file from its content, ./ keeps names that start with a dash from being read as options
 less file                                    # scrolls through a long file (q to quit)
 cat file                                     # reads a file
