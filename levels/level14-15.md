@@ -16,5 +16,7 @@ nc 127.0.0.1 30000
 ```
 
 ## Learning points: 
--   localhost is used to access network services that are running on the host via the loopback network interface
--   netcat (nc) can open TCP connections, send UDP packets, listen on TCP/UDP ports, and do port scanning. It operates on both IPv4 and IPv6 addresses 
+-   localhost always means the machine the command is run on, so service listening on localhost has to be reached from the server itself
+-   the localhost address points to 127.0.0.1 (in IPv6 it's `::1`)  
+-   `nc <host> <port>` connects to a port and enables sending text to the service and read its reply
+-   `nc` sends data as plain text without encryption, safe here because the connection stays on localhost but over a real network it's dangerous (anyone on the path can read it)
